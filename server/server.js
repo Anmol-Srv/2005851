@@ -1,9 +1,12 @@
 const express = require('express');
+const cors = require('cors');
 const { getAuthToken } = require('./auth');
 const { getAllTrains, processTrains } = require('./trains');
 
 const app = express();
 const port = 3002;
+//This is to allow communication between local host servers
+app.use(cors());
 
 let accessToken = null;
 let tokenExpiration = null;
@@ -20,8 +23,8 @@ const getAccessToken = async () => {
   // Save the new token and its expiration time
   accessToken = authResponse['access_token'];
   tokenExpiration = Date.now() + authResponse['expires_in'] * 1000;
-  console.log(accessToken);
-  console.log(tokenExpiration);
+  // console.log(accessToken);
+  // console.log(tokenExpiration);
   return accessToken;
 };
 

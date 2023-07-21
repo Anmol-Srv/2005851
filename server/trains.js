@@ -1,13 +1,14 @@
 const axios = require('axios');
 
 const getAllTrains = async (token) => {
-  console.log('Token:', token);  // Add this line
+  // console.log('Token:', token);
   const response = await axios.get('http://20.244.56.144/train/trains', {
     headers: { Authorization: `Bearer ${token}` }
   });
   return response.data;
 };
 
+//Logic for displaying the Train data according to the problem statement
 const processTrains = (trains) => {
   const currentTime = new Date();
   currentTime.setSeconds(0);
