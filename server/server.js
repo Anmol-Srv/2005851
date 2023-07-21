@@ -46,7 +46,7 @@ const { getAuthToken } = require('./auth');
 const { getAllTrains, processTrains } = require('./trains');
 
 const app = express();
-const port = 3001;
+const port = 3002;
 
 let accessToken = null;
 let tokenExpiration = null;
